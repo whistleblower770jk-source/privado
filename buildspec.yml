@@ -12,6 +12,8 @@ phases:
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
       - REPOSITORY_URI=$ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/privado-main
       - |
+        echo "Waiting 15 seconds for release workflow to complete..."
+        sleep 15
         if [[ $AWS_REGION = "eu-west-1" ]]
         then
             LATEST_TAG="$(git describe --tags --abbrev=0)"
