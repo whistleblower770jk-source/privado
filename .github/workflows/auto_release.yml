@@ -19,9 +19,6 @@ jobs:
       - name: Create an incremental tag
         id: generate-tag
         run: |
-          echo "Waiting 15 seconds for release workflow to complete..."
-          sleep 15
-          
           latest_tag=$(gh api repos/$OWNER/$REPO/tags --jq '.[0].name')
           
           new_tag=$(echo $latest_tag | awk -F. '{print $1"."$2"."$3+1}')
