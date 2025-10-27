@@ -1,8 +1,11 @@
-name: Draft a new release
+name: Privado Main Release
 
 on:
   push:
     branches: ["main"]
+
+permissions:
+  contents: write
 
 jobs:
   create_release:
@@ -29,4 +32,4 @@ jobs:
           echo "new_tag=$new_tag" >> $GITHUB_OUTPUT                
 
       - name: Create a release
-        run: gh release create ${{ steps.generate-tag.outputs.new_tag }} --draft --generate-notes --target main --title "${{ steps.generate-tag.outputs.new_tag }} 🌈" --repo "${{ env.OWNER }}/${{ env.REPO }}"
+        run: gh release create ${{ steps.generate-tag.outputs.new_tag }} --generate-notes --target main --title "${{ steps.generate-tag.outputs.new_tag }} 🌈" --repo "${{ env.OWNER }}/${{ env.REPO }}"
