@@ -10,3 +10,9 @@ systemConfig:
 
   - key: airflowBaseClasses
     value: (?i).*(BaseOperator|BaseSensorOperator|BashOperator|KubernetesPodOperator|PythonVirtualenvOperator|BaseHook|GoogleDriveHook|HttpHook).*
+
+  - key: mcpLibraries
+    value: (?i)(fastMCP|mcp|langchain_mcp_adapters|llama_index.tools.mcp).*
+
+  - key: mcpSinks
+    value: (?i)(listTools|callTool|listResources|readResource|sendRequest|readResponse).*
