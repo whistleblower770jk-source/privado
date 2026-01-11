@@ -1,5 +1,5 @@
 sinks:
-
+ 
   - id: Leakages.Log.Error
     name: Log Error
     patterns:
